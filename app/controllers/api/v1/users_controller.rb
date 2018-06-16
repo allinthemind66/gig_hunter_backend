@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  skip_before_action :authorized, only: [:index, :create]
+  skip_before_action :authorized, only: [:index, :create, :show]
 
   def index
     @users = User.all
@@ -7,6 +7,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
+    byebug
     @user = User.find(params[:id])
     render json: @user, include: ['instruments','gigs']
   end
