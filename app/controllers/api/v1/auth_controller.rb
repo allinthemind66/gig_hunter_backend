@@ -6,6 +6,7 @@ class Api::V1::AuthController < ApplicationController
   def create
     # byebug
     user = User.find_by(username: user_login_params[:username])
+    user.authenticate(user_login_params[:password]
     if user && user.authenticate(user_login_params[:password])
       token = encode_token({user_id: user.id})
       render json: { id: user.id, username: user.username, jwt: token }
