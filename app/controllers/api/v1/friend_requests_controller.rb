@@ -15,7 +15,8 @@ class Api::V1::FriendRequestsController < ApplicationController
   end
 
   def create
-    #
+    puts 'this is the current user'
+    puts current_user
     @friendRequest = FriendRequest.find_or_create_by(friend_id: params[:friendId], user_id: current_user.id)
     render json: @friendRequest
   end

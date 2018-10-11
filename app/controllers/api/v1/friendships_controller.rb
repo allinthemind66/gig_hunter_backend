@@ -1,5 +1,5 @@
 class Api::V1::FriendshipsController < ApplicationController
-
+skip_before_action :authorized
   def index
     #
     @friendships = Friendship.all.select{|friendship| friendship.user_id === current_user.id || friendship.friend_id === current_user.id}
