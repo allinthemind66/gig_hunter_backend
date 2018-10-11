@@ -22,6 +22,9 @@ class ApplicationController < ActionController::API
    puts 'these are the decoded token params'
    puts '##############################################'
    puts params
+   puts 'these are the headers'
+   puts '##############################'
+   puts request.headers
    if request.headers["Authorization"]
        token = request.headers["Authorization"].split(" ")[1] #header: {'Authorization': 'Bearer JWTTOKEN'}
        begin
