@@ -2,6 +2,9 @@ class ApplicationController < ActionController::API
   before_action :authorized
 
  def encode_token(payload)
+   puts 'this is the payload!!!'
+   puts '###########################################'
+   puts payload
    ###this is good. correct user is showing up
    JWT.encode(payload, ENV["SECRET"])
  end
