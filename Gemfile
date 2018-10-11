@@ -20,6 +20,7 @@ gem 'puma', '~> 3.7'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'jwt'
+
 gem 'geocoder'
 
 # For Image Uploading

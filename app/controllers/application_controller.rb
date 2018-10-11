@@ -6,7 +6,7 @@ class ApplicationController < ActionController::API
    puts '###########################################'
    puts payload
    ###this is good. correct user is showing up
-   JWT.encode(payload, ENV["SECRET"])
+   JWT.encode(payload, nil, 'none')
  end
 
  # def auth_header
