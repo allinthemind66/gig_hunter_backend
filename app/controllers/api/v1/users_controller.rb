@@ -19,7 +19,7 @@ class Api::V1::UsersController < ApplicationController
     @instrument2 = Instrument.find_or_create_by(name: params[:secondaryInstrument])
     @user.instruments << @instrument1
     @user.instruments << @instrument2
-    # byebug
+
     if @user.valid?
       @user.save
       token = encode_token({ user_id: @user.id })
@@ -37,7 +37,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def add_img
-    # byebug
+
     @user = User.all.find(current_user[:id])
     @user.img_url = params[:img]
     @user.save

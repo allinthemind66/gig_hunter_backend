@@ -33,7 +33,7 @@ module Api
       end
 
       def destroy
-        # byebug
+
         @user_gig = UserGig.find_by(gig_id: params[:gigId], user_id: params[:userId])
         @user_gig.delete
         render json: UserGig.all

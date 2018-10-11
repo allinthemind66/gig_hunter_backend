@@ -1,7 +1,7 @@
 class Api::V1::FriendshipsController < ApplicationController
 
   def index
-    # byebug
+    #
     @friendships = Friendship.all.select{|friendship| friendship.user_id === current_user.id || friendship.friend_id === current_user.id}
     friends = []
     @friendships.select do |friendship|
@@ -11,7 +11,7 @@ class Api::V1::FriendshipsController < ApplicationController
   end
 
   def create
-    # byebug
+    #
     @friendship = Friendship.find_or_create_by(friend_id: params[:id], user_id: current_user.id)
     @friend_request = FriendRequest.find_by(user_id: params[:id], friend_id: current_user.id)
     @friend_request.delete

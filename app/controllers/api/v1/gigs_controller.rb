@@ -1,7 +1,7 @@
   class Api::V1::GigsController < ApplicationController
       skip_before_action :authorized
       def index
-        # byebug
+
         render json: Gig.all
       end
 
