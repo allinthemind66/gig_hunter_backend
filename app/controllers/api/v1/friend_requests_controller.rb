@@ -1,5 +1,5 @@
 class Api::V1::FriendRequestsController < ApplicationController
-  skip_before_action :authorized
+  # skip_before_action :authorized
 
   def index
     #friend id is the id on the person another person is tring to friend.
@@ -23,6 +23,7 @@ class Api::V1::FriendRequestsController < ApplicationController
     puts request.headers
     puts 'this is the authorization header'
     puts request.headers["Authorization"]
+    #not getting any headers for some reason
     @friendRequest = FriendRequest.find_or_create_by(friend_id: params[:friendId], user_id: current_user.id)
     render json: @friendRequest
   end
